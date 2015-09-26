@@ -51,7 +51,7 @@ int main()
     clock_t time_end = clock();
     double time_face = double(time_end - time_begin) / CLOCKS_PER_SEC;
 
-    cout << "Detected " << faces.size() << " in " << time_face << " seconds" << endl;
+    cout << "Detected " << faces.size() << " faces in " << time_face << " seconds" << endl;
 
     for(size_t f = 0; f < faces.size(); f++)
     {

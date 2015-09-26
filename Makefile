@@ -1,12 +1,13 @@
 MAKEFILE      = Makefile
-CC            = gcc
 CXX           = g++
-CFLAGS          = $(SUBLIBS) `pkg-config --libs --cflags opencv`
-SOURCES       = main.cpp
+LINK_OPENCV   = `pkg-config --libs --cflags opencv`
+SOURCES       = Face-Feature-Detection
+OBJECTS       = main.o
 TARGET        = Face-Feature-Detection
 
 all:
-	$(CXX) $(CFLAGS) -o $(TARGET) $(SOURCES)
+	$(CXX) -c -m64 -pipe -O2 -Wall -W -fPIE -o $(OBJECTS) $(SOURCES)
+	$(CXX) -m64 -Wl,-O1 -o $(TARGET) $(OBJECTS) $(LINK_OPENCV)
 
 clean:
 	rm -f $(TARGET)
