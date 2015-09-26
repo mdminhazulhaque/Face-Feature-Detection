@@ -1,0 +1,11 @@
+MAKEFILE      = Makefile
+CXX           = g++
+CFLAGS        = $(SUBLIBS) `pkg-config --libs --cflags opencv`
+SOURCES       = Face-Feature-Detection
+TARGET        = Face-Feature-Detection
+
+all:
+	$(CXX) $(CFLAGS) -o $(TARGET) $(SOURCES)
+
+clean:
+	rm -f $(TARGET)
